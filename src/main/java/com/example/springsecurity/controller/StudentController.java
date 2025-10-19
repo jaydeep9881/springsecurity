@@ -11,9 +11,12 @@ import java.util.List;
 
 @RestController
 public class StudentController {
-    List<Student> students= new ArrayList<>(List.of(new Student(1,"jaydeep","A",21),new Student(1,"jayraj","A",22))
+    List<Student> students= new ArrayList<>(List.of(
+            new Student(1,"jaydeep","A",21),
+            new Student(1,"jayraj","A",22))
     );
     @GetMapping("student")
+    @CrossOrigin(origins = "http://localhost:5173")
     public List<Student> getStudent(){
         return students;
     }
@@ -23,6 +26,7 @@ public class StudentController {
     }
     @GetMapping("csrf-token")
     public CsrfToken getCsrfToken(HttpServletRequest request){
+
         return (CsrfToken) request.getAttribute("_csrf");
     }
 

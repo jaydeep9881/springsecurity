@@ -7,10 +7,9 @@ import lombok.Data;
 @Entity
 public class Users {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(nullable = false)
     private Long id;
     private String username;
     private String password;
-
 }
